@@ -117,7 +117,7 @@ class TranscriptionControllerGetTranscriptionTest extends IntegrationBase {
     }
 
     @Test
-    void givenRequestedTranscriptionDoesNotExist_whenGetTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
+    void whenGetTranscriptionForNonExistingTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = get(ENDPOINT_URL_TRANSCRIPTION, -999);
         MvcResult response = mockMvc.perform(requestBuilder).andExpect(status().isNotFound()).andReturn();
         String actualResponse = response.getResponse().getContentAsString();

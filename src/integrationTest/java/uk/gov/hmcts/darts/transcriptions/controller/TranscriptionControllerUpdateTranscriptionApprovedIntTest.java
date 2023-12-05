@@ -190,9 +190,7 @@ class TranscriptionControllerUpdateTranscriptionApprovedIntTest extends Integrat
     }
 
     @Test
-//    alternative naming if we want to allow empty given
-//    void given_whenUpdateTranscriptionForNonExistingTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
-    void givenRequestedTranscriptionDoesNotExist_whenUpdateTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
+    void whenUpdateTranscriptionForNonExistingTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
         UpdateTranscription updateTranscription = new UpdateTranscription();
         updateTranscription.setTranscriptionStatusId(APPROVED.getId());
         updateTranscription.setWorkflowComment("APPROVED");
