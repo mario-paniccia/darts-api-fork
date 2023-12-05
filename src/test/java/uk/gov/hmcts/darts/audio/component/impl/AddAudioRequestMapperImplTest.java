@@ -31,7 +31,7 @@ class AddAudioRequestMapperImplTest {
     }
 
     @Test
-    void testMapToMedia() {
+    void givenCourtroomExistsOrCreated_whenMapCourtroomAudioMetadataToMediaIsRequested_thenMetadataIsSuccessfullyMapped() {
         CourthouseEntity courthouse = new CourthouseEntity();
         courthouse.setCourthouseName("SWANSEA");
 
