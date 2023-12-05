@@ -190,7 +190,7 @@ class TranscriptionControllerUpdateTranscriptionApprovedIntTest extends Integrat
     }
 
     @Test
-    void whenUpdateTranscriptionForNonExistingTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
+    void whenUpdateTranscriptionForNonExistingTranscriptionIsRequested_thenErrorIsReturned() throws Exception {
         UpdateTranscription updateTranscription = new UpdateTranscription();
         updateTranscription.setTranscriptionStatusId(APPROVED.getId());
         updateTranscription.setWorkflowComment("APPROVED");
@@ -216,7 +216,7 @@ class TranscriptionControllerUpdateTranscriptionApprovedIntTest extends Integrat
     }
 
     @Test
-    void givenExistingTranscription_whenUpdateToInvalidStatusIsRequested_thenTranscriptionWorkflowActionInvalidErrorIsReturned() throws Exception {
+    void givenExistingTranscription_whenUpdateToInvalidStatusIsRequested_thenErrorIsReturned() throws Exception {
         UpdateTranscription updateTranscription = new UpdateTranscription();
         updateTranscription.setTranscriptionStatusId(WITH_TRANSCRIBER.getId());
         updateTranscription.setWorkflowComment("APPROVED");

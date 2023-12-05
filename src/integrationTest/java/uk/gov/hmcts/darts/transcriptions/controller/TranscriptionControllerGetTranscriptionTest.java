@@ -63,7 +63,7 @@ class TranscriptionControllerGetTranscriptionTest extends IntegrationBase {
     }
 
     @Test
-    void givenExistingTranscription_whenGetTranscriptionIsRequested_thenTheDetailsAreReturned() throws Exception {
+    void givenExistingTranscription_whenGetTranscriptionDetailsIsRequested_thenDetailsAreReturned() throws Exception {
         HearingEntity hearingEntity = dartsDatabase.getHearingRepository().findAll().get(0);
         TranscriptionEntity transcription = dartsDatabase.getTranscriptionStub().createTranscription(hearingEntity);
         transcription.setCreatedDateTime(OffsetDateTime.of(2023, 6, 20, 10, 0, 0, 0, ZoneOffset.UTC));
@@ -117,7 +117,7 @@ class TranscriptionControllerGetTranscriptionTest extends IntegrationBase {
     }
 
     @Test
-    void whenGetTranscriptionForNonExistingTranscriptionIsRequested_thenTranscriptionNotFoundErrorIsReturned() throws Exception {
+    void whenGetTranscriptionDetailsForNonExistingTranscriptionIsRequested_thenErrorIsReturned() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = get(ENDPOINT_URL_TRANSCRIPTION, -999);
         MvcResult response = mockMvc.perform(requestBuilder).andExpect(status().isNotFound()).andReturn();
         String actualResponse = response.getResponse().getContentAsString();
