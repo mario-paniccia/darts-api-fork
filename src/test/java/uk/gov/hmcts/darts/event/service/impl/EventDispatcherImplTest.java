@@ -28,7 +28,7 @@ class EventDispatcherImplTest {
     EventHandlerRepository eventHandlerRepository;
 
     @Test
-    void receiveWithNoHandlers() {
+    void givenMatchingEventHandlerOnDatabaseDoesNotExist_whenReceiveEventIsRequested_thenErrorIsReturned() {
         List<EventHandler> eventHandlers = new ArrayList<>();
         when(eventHandlerRepository.findByTypeAndSubType(anyString(), anyString())).thenReturn(Collections.emptyList());
         EventDispatcherImpl eventDispatcher = new EventDispatcherImpl(eventHandlers, eventHandlerRepository);
@@ -47,7 +47,7 @@ class EventDispatcherImplTest {
     }
 
     @Test
-    void receiveWithOneHandlers() {
+    void givenMatchingEventHandlerExists_whenReceiveEventIsRequested_thenEventIsSuccessfullyReceived() {
         EventHandlerEntity eventHandlerEntity = new EventHandlerEntity();
         when(eventHandlerRepository.findByTypeAndSubType(anyString(), anyString())).thenReturn(List.of(eventHandlerEntity));
 
